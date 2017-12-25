@@ -19,9 +19,10 @@ export default class App extends React.Component {
   }
 
   render() {
+    const store = MainStore
     return (
       <View style={styles.container}>
-        <Text>WOI SINI</Text>
+        <Text>{store.myName}</Text>
         <TouchableOpacity style={{backgroundColor:'blue', height:200, width:150}} onPress={this.handlePress}></TouchableOpacity>
       </View>
     );
