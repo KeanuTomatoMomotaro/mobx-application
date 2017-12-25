@@ -9,7 +9,7 @@ import {
 class MainStore {
   
     @observable myName = 'keanu'
-  
+    
     updateName(newName){
       this.myName = newName
     }
