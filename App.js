@@ -10,30 +10,28 @@ export default class App extends React.Component {
   }
 
   handlePress(){
-    // console.log()
     const store = MainStore
-    // console.log
     console.log("name is",store.myName)  
     store.updateName("KEANU_888")
     console.log("name is now",store.myName)
   }
 
+  handlePressSum(){
+    const store = MainStore
+    console.log("number is ",store.myNumber)  
+    store.sumNumber(2)
+    console.log("Number is now",store.myNumber)
+  }
+
   render() {
     const store = MainStore
     return (
-      <View style={styles.container}>
-        <Text>{store.myName}</Text>
-        <TouchableOpacity style={{backgroundColor:'blue', height:200, width:150}} onPress={this.handlePress}></TouchableOpacity>
+      <View>
+        <TouchableOpacity style={{backgroundColor:'blue', height:100, width:100}} onPress={this.handlePress}></TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor:'red', height:100, width:100}} onPress={this.handlePressSum}></TouchableOpacity>
+        <Text>{store.myName}</Text>        
+        <Text>{store.myNumber}</Text>        
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
