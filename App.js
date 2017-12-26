@@ -16,21 +16,30 @@ export default class App extends React.Component {
     console.log("name is now",store.myName)
   }
 
-  handlePressSum(){
+  handlePressNumber(){
     const store = MainStore
-    console.log("number is ",store.myNumber)  
-    store.sumNumber(2)
-    console.log("Number is now",store.myNumber)
+    store.updateNumber(2) 
+  }
+
+  handlePressOperand(){
+    const store = MainStore
+    store.updateOperand(2) 
+  }
+
+  handlePressSum(value){
+    const store = MainStore
+    store.sumNumber() 
   }
 
   render() {
     const store = MainStore
     return (
-      <View>
-        <TouchableOpacity style={{backgroundColor:'blue', height:100, width:100}} onPress={this.handlePress}></TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor:'red', height:100, width:100}} onPress={this.handlePressSum}></TouchableOpacity>
-        <Text>{store.myName}</Text>        
-        <Text>{store.myNumber}</Text>        
+      <View style = {{flex:1, alignItems:'center', justifyContent:'center'}}>
+        <Text>Number is {store.myNumber}</Text>        
+        <Text>Operand is {store.myOperand}</Text>      
+        <TouchableOpacity style={{backgroundColor:'blue', height:100, width:100}} onPress={this.handlePressNumber}></TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor:'red', height:100, width:100}} onPress={this.handlePressOperand}></TouchableOpacity>  
+        <TouchableOpacity style={{backgroundColor:'yellow', height:100, width:100}} onPress={this.handlePressSum}></TouchableOpacity>  
       </View>
     );
   }
