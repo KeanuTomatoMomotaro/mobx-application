@@ -10,13 +10,22 @@ class MainStore {
   
     @observable myName = 'keanu'
     @observable myNumber = 0
+    @observable myOperand = 0
 
     updateName(newName){
       this.myName = newName
     }
     
-    sumNumber(operand){
-      this.myNumber += operand
+    updateNumber(newNumber){
+      this.myNumber = newNumber
+    }
+
+    updateOperand(newOperand){
+      this.myOperand = newOperand
+    }
+
+    sumNumber(){
+      this.myNumber += this.myOperand
     }
 }
 
