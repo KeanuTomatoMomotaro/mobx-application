@@ -33,7 +33,7 @@ export default class App extends React.Component {
 
   handlePressNumber(){
     const store = MainStore
-    store.updateNumberProp(2) 
+    store.updateNumberProp(3) 
   }
 
   handlePressOperand(){
@@ -41,10 +41,26 @@ export default class App extends React.Component {
     store.updateOperandProp(2) 
   }
 
-  handlePressOperator(){
+  handlePressOperatorPlus(){
     const store = MainStore
     store.updateOperatorProp('+')
   }
+
+  handlePressOperatorMinus(){
+    const store = MainStore
+    store.updateOperatorProp('-')
+  }
+
+  handlePressOperatorMultip(){
+    const store = MainStore
+    store.updateOperatorProp('x')
+  }
+
+  handlePressOperatorDivide(){
+    const store = MainStore
+    store.updateOperatorProp('/')
+  }
+
 
   handlePressSum(){
     const store = MainStore
@@ -60,7 +76,10 @@ export default class App extends React.Component {
         <Text>Operand is {store.calculatorValues.operand}</Text>
         <Text>Sum is {store.calculatorValues.sum}</Text>              
         <TouchableOpacity style={{backgroundColor:'blue', height:100, width:100}} onPress={this.handlePressNumber}></TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor:'yellow', height:100, width:100}} onPress={this.handlePressOperator}></TouchableOpacity>  
+        <TouchableOpacity style={{backgroundColor:'yellow', height:100, width:100}} onPress={this.handlePressOperatorPlus}></TouchableOpacity>  
+        <TouchableOpacity style={{backgroundColor:'pink', height:100, width:100}} onPress={this.handlePressOperatorMinus}></TouchableOpacity>  
+        <TouchableOpacity style={{backgroundColor:'purple', height:100, width:100}} onPress={this.handlePressOperatorMultip}></TouchableOpacity>  
+        <TouchableOpacity style={{backgroundColor:'black', height:100, width:100}} onPress={this.handlePressOperatorDivide}></TouchableOpacity>  
         <TouchableOpacity style={{backgroundColor:'red', height:100, width:100}} onPress={this.handlePressOperand}></TouchableOpacity>  
         <TouchableOpacity style={{backgroundColor:'green', height:100, width:100}} onPress={this.handlePressSum}></TouchableOpacity>  
       </View>

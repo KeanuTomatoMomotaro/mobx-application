@@ -57,6 +57,15 @@ class MainStore {
         case '+':
           this.calculatorValues.sum = number + operator
           break;
+        case 'x':
+          this.calculatorValues.sum = number * operator
+          break;
+        case '/':
+          this.calculatorValues.sum = number / operator
+          break;
+        case '-':
+          this.calculatorValues.sum = number - operator
+          break;
         default:
           break;
       }
