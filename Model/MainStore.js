@@ -15,7 +15,7 @@ class MainStore {
     //diff style
     @observable calculatorValues = {
           'number' : "0",
-          'operand' : 0,
+          'operand' : "0",
           'operator':'',
           'total' : 0,
     }
@@ -57,24 +57,31 @@ class MainStore {
     }
 
     @action updateTotalProp(number, operand, operator) {
-      switch(operand){
+      switch(operator){
         case '+':
-          this.calculatorValues.total = number + operator
+          this.calculatorValues.total = parseFloat(number) + parseFloat(operand)
           break;
         case 'x':
-          this.calculatorValues.total = number * operator
+          this.calculatorValues.total = parseFloat(number) * parseFloat(operand)
           break;
         case '/':
-          this.calculatorValues.total = number / operator
+          this.calculatorValues.total = parseFloat(number) / parseFloat(operand)
           break;
         case '-':
-          this.calculatorValues.total = number - operator
+          this.calculatorValues.total = parseFloat(number) - parseFloat(operand)
           break;
         default:
           break;
       }
       console.log('@action | Update total | total : ', this.calculatorValues.total)
     }
+
+  @action updateClearAll(){
+    this.calculatorValues.number = "0"
+    this.calculatorValues.total = 0
+    this.calculatorValues.operator = ""
+    this.calculatorValues.operand = "0"
+  }
 }
 
 export default new  MainStore()

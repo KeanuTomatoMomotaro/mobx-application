@@ -34,7 +34,11 @@ export default class App extends React.Component {
 
   handlePressNumber(value){
     const store = MainStore
-    store.updateNumberProp(value) 
+    if(store.calculatorValues.operator == ""){
+      store.updateNumberProp(value)       
+    }else{
+      store.updateOperandProp(value)             
+    }
   }
 
   handlePressOperand(){
@@ -49,7 +53,12 @@ export default class App extends React.Component {
 
   handlePressEquals(){
     const store = MainStore
-    store.updateTotalProp(store.calculatorValues.number, store.calculatorValues.operator, store.calculatorValues.operand)
+    store.updateTotalProp(store.calculatorValues.number, store.calculatorValues.operand, store.calculatorValues.operator)
+  }
+
+  handlePressAC(){
+    const store = MainStore
+    store.updateClearAll()
   }
 
   render() {
@@ -67,7 +76,7 @@ export default class App extends React.Component {
           <Text>Operand is {store.calculatorValues.operand}</Text>
           <Text>total is {store.calculatorValues.total}</Text>      
             <View style= {{flexDirection:'row'}}>
-              <TouchableOpacity style={{backgroundColor:'blue', height:100, width:100}} onPress={this.handlePressNumber}></TouchableOpacity>
+              <TouchableOpacity style={{backgroundColor:'blue', height:100, width:100}} onPress={this.handlePressAC}></TouchableOpacity>
               <TouchableOpacity style={{backgroundColor:'yellow', height:100, width:100}} onPress={this.handlePressOperatorPlus}></TouchableOpacity>  
               <TouchableOpacity style={{backgroundColor:'pink', height:100, width:100}} onPress={this.handlePressOperatorMinus}></TouchableOpacity>  
               <TouchableOpacity style={{backgroundColor:'purple', height:100, width:100}} onPress={() => this.handlePressOperator("/")}></TouchableOpacity>  
