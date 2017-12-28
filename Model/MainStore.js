@@ -14,7 +14,7 @@ class MainStore {
     
     //diff style
     @observable calculatorValues = {
-          'number' : 0,
+          'number' : "0",
           'operand' : 0,
           'operator':'',
           'sum' : 0,
@@ -25,7 +25,7 @@ class MainStore {
     }
     
     updateNumber(newNumber){
-      this.myNumber = newNumber
+        this.myNumber = newNumber        
     }
 
     updateOperand(newOperand){
@@ -38,7 +38,11 @@ class MainStore {
 
     //diff style
     @action updateNumberProp(number) {
-      this.calculatorValues.number = number
+      if(this.calculatorValues.number == "0"){
+        this.calculatorValues.number = number
+      }else{
+        this.calculatorValues.number += number
+      }
       console.log('@action | Update number | number : ', this.calculatorValues.number)
     }
     
