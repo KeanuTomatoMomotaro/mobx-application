@@ -77,8 +77,8 @@ export default class App extends React.Component {
           <Text>total is {store.calculatorValues.total}</Text>      
             <View style= {{flexDirection:'row'}}>
               <TouchableOpacity style={{backgroundColor:'blue', height:100, width:100}} onPress={this.handlePressAC}></TouchableOpacity>
-              <TouchableOpacity style={{backgroundColor:'yellow', height:100, width:100}} onPress={this.handlePressOperatorPlus}></TouchableOpacity>  
-              <TouchableOpacity style={{backgroundColor:'pink', height:100, width:100}} onPress={this.handlePressOperatorMinus}></TouchableOpacity>  
+              <TouchableOpacity style={{backgroundColor:'yellow', height:100, width:100}}></TouchableOpacity>  
+              <TouchableOpacity style={{backgroundColor:'pink', height:100, width:100}}></TouchableOpacity>  
               <TouchableOpacity style={{backgroundColor:'purple', height:100, width:100}} onPress={() => this.handlePressOperator("/")}></TouchableOpacity>  
             </View>
             <View style= {{flexDirection:'row'}}>
@@ -102,7 +102,7 @@ export default class App extends React.Component {
             <View style= {{flexDirection:'row'}}>
               <TouchableOpacity style={{backgroundColor:'blue', height:100, width:200}} onPress={() => this.handlePressNumber("0")}></TouchableOpacity>
               {/* <TouchableOpacity style={{backgroundColor:'yellow', height:100, width:100}} onPress={this.handlePressOperatorPlus}></TouchableOpacity>   */}
-              <TouchableOpacity style={{backgroundColor:'pink', height:100, width:100}} onPress={this.handlePressOperatorMinus}></TouchableOpacity>  
+              <TouchableOpacity style={{backgroundColor:'pink', height:100, width:100}} onPress={()=>this.handlePressNumber(".")}></TouchableOpacity>  
               <TouchableOpacity style={{backgroundColor:'purple', height:100, width:100}} onPress={this.handlePressEquals}></TouchableOpacity>  
             </View>
         </View>
