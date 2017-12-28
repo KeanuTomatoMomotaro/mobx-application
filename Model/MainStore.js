@@ -17,7 +17,7 @@ class MainStore {
           'number' : "0",
           'operand' : 0,
           'operator':'',
-          'sum' : 0,
+          'total' : 0,
     }
 
     updateName(newName){
@@ -32,7 +32,7 @@ class MainStore {
       this.myOperand = newOperand
     }
 
-    sumNumber(){
+    totalNumber(){
       this.myNumber += this.myOperand
     }
 
@@ -56,24 +56,24 @@ class MainStore {
       console.log('@action | Update operator | operator : ', this.calculatorValues.operator)
     }
 
-    @action updateSumProp(number, operand, operator) {
+    @action updateTotalProp(number, operand, operator) {
       switch(operand){
         case '+':
-          this.calculatorValues.sum = number + operator
+          this.calculatorValues.total = number + operator
           break;
         case 'x':
-          this.calculatorValues.sum = number * operator
+          this.calculatorValues.total = number * operator
           break;
         case '/':
-          this.calculatorValues.sum = number / operator
+          this.calculatorValues.total = number / operator
           break;
         case '-':
-          this.calculatorValues.sum = number - operator
+          this.calculatorValues.total = number - operator
           break;
         default:
           break;
       }
-      console.log('@action | Update Sum | sum : ', this.calculatorValues.sum)
+      console.log('@action | Update total | total : ', this.calculatorValues.total)
     }
 }
 
