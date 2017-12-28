@@ -7,6 +7,9 @@ import {observer} from 'mobx-react';
 export default class App extends React.Component {
   constructor(props){
     super(props)
+    
+    this.handlePress = this.handlePress.bind(this);
+    
   }
 
   handlePress(){
@@ -31,54 +34,9 @@ export default class App extends React.Component {
   //   store.sumNumber() 
   // }
 
-  handlePressNumber0(){
+  handlePressNumber(value){
     const store = MainStore
-    store.updateNumberProp("0") 
-  }
-
-  handlePressNumber1(){
-    const store = MainStore
-    store.updateNumberProp("1") 
-  }
-
-  handlePressNumber2(){
-    const store = MainStore
-    store.updateNumberProp("2") 
-  }
-
-  handlePressNumber3(){
-    const store = MainStore
-    store.updateNumberProp("3") 
-  }
-
-  handlePressNumber4(){
-    const store = MainStore
-    store.updateNumberProp("4") 
-  }
-
-  handlePressNumber5(){
-    const store = MainStore
-    store.updateNumberProp("5") 
-  }
-
-  handlePressNumber6(){
-    const store = MainStore
-    store.updateNumberProp("6") 
-  }
-
-  handlePressNumber7(){
-    const store = MainStore
-    store.updateNumberProp("7") 
-  }
-
-  handlePressNumber8(){
-    const store = MainStore
-    store.updateNumberProp("8") 
-  }
-
-  handlePressNumber9(){
-    const store = MainStore
-    store.updateNumberProp("9") 
+    store.updateNumberProp(value) 
   }
 
   handlePressOperand(){
@@ -133,25 +91,25 @@ export default class App extends React.Component {
               <TouchableOpacity style={{backgroundColor:'purple', height:100, width:100}} onPress={this.handlePressOperatorMultip}></TouchableOpacity>  
             </View>
             <View style= {{flexDirection:'row'}}>
-              <TouchableOpacity style={{backgroundColor:'red', height:100, width:100}} onPress={this.handlePressNumber7}></TouchableOpacity>
-              <TouchableOpacity style={{backgroundColor:'black', height:100, width:100}} onPress={this.handlePressNumber8}></TouchableOpacity>  
-              <TouchableOpacity style={{backgroundColor:'green', height:100, width:100}} onPress={this.handlePressNumber9}></TouchableOpacity>  
+              <TouchableOpacity style={{backgroundColor:'red', height:100, width:100}} onPress={() => this.handlePressNumber("7")}></TouchableOpacity>
+              <TouchableOpacity style={{backgroundColor:'black', height:100, width:100}} onPress={() => this.handlePressNumber("8")}></TouchableOpacity>  
+              <TouchableOpacity style={{backgroundColor:'green', height:100, width:100}} onPress={() => this.handlePressNumber("9")}></TouchableOpacity>  
               <TouchableOpacity style={{backgroundColor:'orange', height:100, width:100}} onPress={this.handlePressOperatorMultip}></TouchableOpacity>  
             </View>
             <View style= {{flexDirection:'row'}}>
-              <TouchableOpacity style={{backgroundColor:'blue', height:100, width:100}} onPress={this.handlePressNumber4}></TouchableOpacity>
-              <TouchableOpacity style={{backgroundColor:'yellow', height:100, width:100}} onPress={this.handlePressNumber5}></TouchableOpacity>  
-              <TouchableOpacity style={{backgroundColor:'pink', height:100, width:100}} onPress={this.handlePressNumber6}></TouchableOpacity>  
+              <TouchableOpacity style={{backgroundColor:'blue', height:100, width:100}} onPress={() => this.handlePressNumber("4")}></TouchableOpacity>
+              <TouchableOpacity style={{backgroundColor:'yellow', height:100, width:100}} onPress={() => this.handlePressNumber("5")}></TouchableOpacity>  
+              <TouchableOpacity style={{backgroundColor:'pink', height:100, width:100}} onPress={() => this.handlePressNumber("6")}></TouchableOpacity>  
               <TouchableOpacity style={{backgroundColor:'purple', height:100, width:100}} onPress={this.handlePressOperatorMultip}></TouchableOpacity>  
             </View>
             <View style= {{flexDirection:'row'}}>
-              <TouchableOpacity style={{backgroundColor:'red', height:100, width:100}} onPress={this.handlePressNumber1}></TouchableOpacity>
-              <TouchableOpacity style={{backgroundColor:'black', height:100, width:100}} onPress={this.handlePressNumber2}></TouchableOpacity>  
-              <TouchableOpacity style={{backgroundColor:'green', height:100, width:100}} onPress={this.handlePressNumber3}></TouchableOpacity>  
+              <TouchableOpacity style={{backgroundColor:'red', height:100, width:100}} onPress={() => this.handlePressNumber("1")}></TouchableOpacity>
+              <TouchableOpacity style={{backgroundColor:'black', height:100, width:100}} onPress={() => this.handlePressNumber("2")}></TouchableOpacity>  
+              <TouchableOpacity style={{backgroundColor:'green', height:100, width:100}} onPress={() => this.handlePressNumber("3")}></TouchableOpacity>  
               <TouchableOpacity style={{backgroundColor:'orange', height:100, width:100}} onPress={this.handlePressOperatorMultip}></TouchableOpacity>  
             </View>
             <View style= {{flexDirection:'row'}}>
-              <TouchableOpacity style={{backgroundColor:'blue', height:100, width:200}} onPress={this.handlePressNumber0}></TouchableOpacity>
+              <TouchableOpacity style={{backgroundColor:'blue', height:100, width:200}} onPress={() => this.handlePressNumber("0")}></TouchableOpacity>
               {/* <TouchableOpacity style={{backgroundColor:'yellow', height:100, width:100}} onPress={this.handlePressOperatorPlus}></TouchableOpacity>   */}
               <TouchableOpacity style={{backgroundColor:'pink', height:100, width:100}} onPress={this.handlePressOperatorMinus}></TouchableOpacity>  
               <TouchableOpacity style={{backgroundColor:'purple', height:100, width:100}} onPress={this.handlePressOperatorMultip}></TouchableOpacity>  
